@@ -10,7 +10,6 @@ const path = require("path");
 const events = require("./events");
 const chalk = require('chalk');
 const config = require('./config');
-const cosec = require('./cosec')
 const { Message, Image, Video, StringSession } = require('./DIANA/');
 const { DataTypes } = require('sequelize');
 // const { GreetingsDB, getMessage } = require("./plugins/sql/greetings");
@@ -21,7 +20,7 @@ const Language = require('./language');
 const Lang = Language.getString('updater');
 
 
-const DIANADB = cosec.DATABASE.define('diana', {
+const DIANADB = config.DATABASE.define('diana', {
     info: {
       type: DataTypes.STRING,
       allowNull: false
