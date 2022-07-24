@@ -1,6 +1,4 @@
 
-const cosec = require('../cosec');
-const Cosec = require('../cosec');
 const Config = require('../config');
 const config = require('../config');
 const diana = require("../events");
@@ -18,7 +16,7 @@ const git = simpleGit();
 const exec = require('child_process').exec;
 const Heroku = require('heroku-client');
 const { PassThrough } = require('stream');
-const heroku = new Heroku({ token: cosec.HEROKU.API_KEY })
+const heroku = new Heroku({ token: Config.HEROKU.API_KEY })
 const { state, saveState } = useSingleFileAuthState('./session.json')
 const Language = require('../language');
 const Lang = Language.getString('updater');
@@ -38,9 +36,9 @@ diana.getCMD({pattern: 'update now$', fromMe: true, deleteCommand: false, desc: 
 await  message.client.sendMessage(message.jid , { text: Lang.UPDATE }, { quoted: message.data } )
   
     } else {
-    if (cosec.HEROKU.HEROKU) {
+    if (Config.HEROKU.HEROKU) {
             try {
-                var app = await heroku.get('/apps/' + cosec.HEROKU.APP_NAME)
+                var app = await heroku.get('/apps/' + Config.HEROKU.APP_NAME)
             } catch {
                 message.client.sendMessage(message.jid , { text: Lang.INVALID_HEROKU + "\n\n" + IN_AF }, { quoted: message.data } );
             }
@@ -50,13 +48,13 @@ await  message.client.sendMessage(message.jid , { text: Lang.UPDATE }, { quoted:
             git.reset('hard', ['FETCH_HEAD']);
 
             var git_url = app.git_url.replace(
-                "https://", "https://api:" + cosec.HEROKU.API_KEY + "@"
+                "https://", "https://api:" + Config.HEROKU.API_KEY + "@"
             )
             
             try {
                 await git.addRemote('heroku', git_url);
             } catch { console.log('heroku remote ekli'); }
-            await git.push('heroku', Config.BRANCH);
+            await git.push('heroku', config.BRANCH);
 
             message.client.sendMessage(message.jid , { text: Lang.UPDATED_LOCAL }, { quoted: message.data } );
             message.client.sendMessage(message.jid , { text: Lang.AFTER_UPDATE }, { quoted: message.data } );
