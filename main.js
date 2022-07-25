@@ -123,8 +123,9 @@ plugins.map(async (plugin) => {
         }     
     }
 });
- } catch {
+ } catch(error) {
 	 console.log("external plugin error🤨🥲")
+	 console.log(error)
 	 }
 //=================== END INSTALL EXTERNALPLUGINS=========================
         console.log(
