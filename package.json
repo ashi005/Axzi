@@ -2,9 +2,9 @@
     "name": "DIANA-WA-Bot-MD",
     "version": "1.0.0",
     "description": "DIANA-MD project - a Whatsapp userbot helping to improve your Whatsapp experience.",
-    "main": "./DianaMD/ffff.js",
+    "main": "./DianaMD/main.js",
     "scripts": {
-        "start": "supervisor -s ffff.js"
+        "start": "supervisor -s main.js"
     },
     "repository": {
         "type": "git",
