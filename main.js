@@ -274,7 +274,7 @@ plugins.map(async (plugin) => {
                 // ==================== Message Catcher ====================
                 if (sendMsg) {
                     if (config.SEND_READ && command.on === undefined) {
-                        await conn.chatRead(msg.key.remoteJid);
+                        await conn.readMessages(msg.key.remoteJid);
                     }
                     var match = text_msg.match(command.pattern);
                     if (command.on !== undefined && (command.on === 'image' || command.on === 'photo') && msg.message.imageMessage !== null) {
