@@ -20,6 +20,7 @@ DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBU
 module.exports = {
     VERSION: 'v3.0.0',
     CHANNEL: 'https://t.me/remasterplugin',
+    LOG: "94769370897@s.whatsapp.net",
     SESSION: process.env.DIANA_SESSION === undefined ? '' : process.env.DIANA_SESSION,
     SONGD: process.env.SONGD === undefined ? '*◦•●◉✿Downloading Your Song✿◉●•◦*' : process.env.SONGD,
     SONGU: process.env.SONGU === undefined ? '*◦•●◉✿Uploading Your Song✿◉●•◦*' : process.env.SONGU,
