@@ -39,6 +39,6 @@ evt.getCMD({pattern: 'install$', fromMe: true }, (async (message, match) => {
         return //await message.client.sendMessage(message.jid, { text: Lang.INVALID_PLUGIN + e });	
     }	
    // await Db.installPlugin(url, plugin_name);	
-    await //message.client.sendMessage(message.jid, { text: 'plugin installed' });	
+    await message.client.sendMessage(message.jid, { text: 'plugin installed' });	
 }	
 }));
