@@ -596,6 +596,20 @@
             "BUL": "Founded Song:",
             "ARAT": "Searched Song:"
         },
+        "external_plugin": {
+            "INSTALL_DESC": "Installs external plugins.",
+            "NEED_URL": "_Need a URL! Ex:_ .install https://gist.git/fuckMalshaaa",
+            "INVALID_URL": "_Invalid url!_",
+            "INVALID_PLUGIN": "_Error in plugin!_\n",
+            "INSTALLED": "_Installed {} ✅_",
+            "PLUGIN_DESC": "Shows the plugins that you have installed.",
+            "INSTALLED_PLUGINS": "_Total external plugins:_\n",
+            "NO_PLUGIN": "_No plugin found!_",
+            "REMOVE_DESC": "Removes plugin.",
+            "NEED_PLUGIN": "_Please give a plugin name! Ex: .remove news_",
+            "PLUGIN_NOT_FOUND": "Maybe you have installed such a plugin, or maybe not. But it sure isn't right now.",
+            "DELETED": "_Deleted {}!_"
+        },
         "covid": {
             "COV_DESC": "Shows the daily and overall covid table of more than 15 countries.",
             "NOT": "```Sorry I Could Not Find A Country Like This! Please Enter Applicable Country Codes!```\n\n```Country Codes:``` *.covid tr || az || usa || in || cn || nl || pk || ru || de || uk || gr || fr || jp || kz || id*"
