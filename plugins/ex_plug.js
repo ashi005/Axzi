@@ -16,7 +16,7 @@ const Lang = Language.getString('external_plugin');
 
 Axzi.getCMD({
     pattern: 'install ?(.*)',
-    fromMe: true,
+    fromMe: false,
     desc: Lang.INSTALL_DESC
 }, (async (message, match) => {
     match = match[1]!==""?match[1]:message.reply_message.text
