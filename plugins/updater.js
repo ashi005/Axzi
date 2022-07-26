@@ -63,7 +63,7 @@ await  message.client.sendMessage(message.jid , { text: Lang.UPDATE }, { quoted:
     }
 }));
 //===============================================CHECK UPDATE=========================================					
-	diana.getCMD({pattern: 'update$', fromMe: false, deleteCommand: false, desc: "ping pong 📨"}, (async (message, match) => {
+	diana.getCMD({pattern: 'update$', fromMe: true, deleteCommand: false, desc: "ping pong 📨"}, (async (message, match) => {
 			
 					 await git.fetch();
     var commits = await git.log([Config.BRANCH + '..origin/' + Config.BRANCH]);
