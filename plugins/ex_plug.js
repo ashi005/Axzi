@@ -15,7 +15,7 @@ let Lang = getString('external_plugin');
 
 
 
-Axzi({
+Axzi.getCMD({
     pattern: 'install ?(.*)',
     fromMe: true,
     desc: Lang.INSTALL_DESC
@@ -55,7 +55,7 @@ Axzi({
 }
 }));
 
-Axzi({
+Axzi.getCMD({
     pattern: 'plugin ?(.*)',
     fromMe: true, desc: Lang.PLUGIN_DESC
 }, (async (message, match) => {
