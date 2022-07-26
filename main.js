@@ -257,12 +257,7 @@ plugins.map(async (plugin) => {
 
                // let sendMsg = false;
 
-                if ((config.SUDO !== false && msg.key.fromMe === false && command.fromMe === true && (msg.participant && config.SUDO.includes(',') ? config.SUDO.split(',')
-                    .includes(msg.participant.split('@')[0]) : msg.participant.split('@')[0] == config.SUDO || config.SUDO.includes(',') ? config.SUDO.split(',')
-                    .includes(msg.key.remoteJid.split('@')[0]) : msg.key.remoteJid.split('@')[0] == config.SUDO)) || command.fromMe === msg.key.fromMe || (command.fromMe === false && !msg.key.fromMe)) {
-                    if (!command.onlyPm === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
-                    else if (command.onlyGroup === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
-                }
+                
                 // ==================== End Events ====================
 
                 // ==================== Message Catcher ====================
