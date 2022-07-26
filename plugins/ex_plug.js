@@ -4,16 +4,12 @@ you may not use this file except in compliance with the License.
 */
 
 
-const {
-    Axzi
-} = require('../events');
+const Axzi = require('../events');
 const Config = require('../config');
 const axios = require('axios');
 const fs = require('fs');
 const Db = require('./sql/plugin');
-let {
-    getString
-} = require('../language');
+let getString = require('../language');
 let Lang = getString('external_plugin');
 
 
