@@ -9,9 +9,8 @@ const Config = require('../config');
 const axios = require('axios');
 const fs = require('fs');
 const Db = require('./sql/plugin');
-let getString = require('../language');
-let Lang = getString('external_plugin');
-
+const Language = require('../language');
+const Lang = Language.getString('external_plugin');
 
 
 
