@@ -13,7 +13,7 @@ const fs = require('fs');
 const Db = require('./sql/plugin');
 let {
     getString
-} = require('../language);
+} = require('../language');
 let Lang = getString('external_plugin');
 
 
