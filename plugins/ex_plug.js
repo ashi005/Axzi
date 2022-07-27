@@ -15,17 +15,17 @@ const Lang = Language.getString('external_plugin');
 
 
 Axzi.getCMD({pattern: 'install ?(.*)', fromMe: true,desc: Lang.INSTALL_DESC}, (async (message, match) => {
-    match = match[1]!==""?match[1]:message.reply_message.text
-
-    if (!match || !/\bhttps?:\/\/\S+/gi.test(match)) return await message.sendMessage(Lang.NEED_URL)
-    let links = match.match(/\bhttps?:\/\/\S+/gi);
-    for (let link of links){
+    if (match[1] === '') return await  message.client.sendMessage(message.jid , { text: Lang.NEED_URL }, { quoted: message.data } )
+    
     try {
-        var url = new URL(link);
+        var url = new URL(match[1]);
     } catch {
-
-        return await message.sendMessage(Lang.INVALID_URL);
+        return 
+        
+        await  message.client.sendMessage(message.jid , { text: Lang.INVALID_URL }, { quoted: message.data } )
     }
+    
+        
     if (url.host === 'gist.github.com') {
         url.host = 'gist.githubusercontent.com';
         url = url.toString() + '/raw'
@@ -36,8 +36,7 @@ Axzi.getCMD({pattern: 'install ?(.*)', fromMe: true,desc: Lang.INSTALL_DESC}, (a
         var response = await axios(url+"?timestamp="+new Date());
     } catch {
 
-        return await message.sendMessage(Lang.INVALID_URL)
-    
+await  message.client.sendMessage(message.jid , { text: Lang.INVALID_URL }, { quoted: message.data } )
 }
     let plugin_name = /pattern: ["'](.*)["'],/g.exec(response.data)
     var plugin_name_temp = response.data.match(/pattern: ["'](.*)["'],/g)?response.data.match(/pattern: ["'](.*)["'],/g).map(e=>e.replace("pattern","").replace(/[^a-zA-Z]/g, "")):"temp"
@@ -48,11 +47,9 @@ Axzi.getCMD({pattern: 'install ?(.*)', fromMe: true,desc: Lang.INSTALL_DESC}, (a
     } catch (e) {
         fs.unlinkSync('/root/queendianamd/plugins/' + plugin_name + '.js')
 
-        return await message.sendReply(Lang.INVALID_PLUGIN + e);
+await  message.client.sendMessage(message.jid , { text: Lang.INVALID_PLUGIN }, { quoted: message.data } )
 
     }
     await Db.installPlugin(url, plugin_name);
-    await message.sendMessage(Lang.INSTALLED.format(plugin_name_temp.join(", ")));
-}
+    await  message.client.sendMessage(message.jid , { text: Lang.INSTALLED }, { quoted: message.data } )
 }));
-
